@@ -9,6 +9,9 @@ def main():
     print("")
     characters = character_count(text)
     final = display(characters)
+    for i in final:
+        if i['char'].isalpha():
+            print(f"The {i['char']} character appears {i['num']} times")
     print("-- End of report --")
 
 def get_book_text(path):
@@ -36,8 +39,6 @@ def display(dict):
     for char in dict:
         list.append({"char": char, "num": dict[char]})
     list.sort(reverse=True, key=sort_on)
-    for i in list:
-        if i['char'].isalpha():
-            print(f"The {i['char']} character appears {i['num']} times")
+    return list
 
 main()
